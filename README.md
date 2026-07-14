@@ -44,6 +44,8 @@ cp -r skills/* ~/.claude/skills/
 | `chart-style` | 无（产出 SVG，语言不限） | 可选 Python 生成 SVG |
 | `mobile-game-strategy-research` | 无 | - |
 
+> **没有 Sensor Tower API 也能用**：ST 是**可选**的，只有 `sensor-tower-fetch-byok` 这一个 skill 需要它。其余 3 个 skill（研究方法论 / 作图 / 飞书编辑）不依赖 ST，可独立运转--没有 ST 订阅也能用本工具箱做"判断赛道/趋势 + 咨询风格作图 + 飞书报告交付"，数据用手头已有的或别处获取的即可。需要拉 ST 下载/收入时再单独装那一个 skill 并配自己的 key。
+
 ## 备注
 
 - `mobile-game-strategy-research/frameworks/` 下两个框架示例（肉鸽赛道 / 市场新趋势）是**占位示例**，展示如何为某研究方向搭框架；其中的假设/产品/数据是占位，请替换为你自己的研究或删除。
