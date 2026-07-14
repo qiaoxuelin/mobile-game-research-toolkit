@@ -25,15 +25,31 @@
 
 ## 安装
 
-把 `skills/` 下需要的 skill 文件夹拷到 Claude Code 的 skills 目录：
-
-- 仓库级：仓库内 `.claude/skills/<skill-name>/`
-- 用户级/全局：`~/.claude/skills/<skill-name>/`
+用 git 一行装到用户级（全局可用，所有项目共享）：
 
 ```bash
-# 示例：装全部到用户级
-cp -r skills/* ~/.claude/skills/
+# Linux / macOS / Git Bash
+git clone --depth 1 https://github.com/qiaoxuelin/mobile-game-research-toolkit.git \
+  && cp -r mobile-game-research-toolkit/skills/* ~/.claude/skills/
 ```
+
+```powershell
+# Windows PowerShell
+git clone --depth 1 https://github.com/qiaoxuelin/mobile-game-research-toolkit.git
+Copy-Item -Recurse mobile-game-research-toolkit\skills\* $HOME\.claude\skills\
+```
+
+只装某一个 skill：
+
+```bash
+git clone --depth 1 https://github.com/qiaoxuelin/mobile-game-research-toolkit.git
+cp -r mobile-game-research-toolkit/skills/feishu-doc-editing ~/.claude/skills/   # 换成要装的 skill 名
+```
+
+- **用户级/全局**：`~/.claude/skills/<skill-name>/`（装一次，所有项目可用，推荐）
+- **仓库级**：项目内 `.claude/skills/<skill-name>/`（仅该项目可用）
+- **更新**：`cd mobile-game-research-toolkit && git pull && cp -r skills/* ~/.claude/skills/`
+- **手动下载**（不想用 git）：GitHub 页面 `Code -> Download ZIP`，解压后把 `skills/` 下的文件夹拷到 `~/.claude/skills/`
 
 ## 配置 / 外部依赖
 
