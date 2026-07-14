@@ -1,4 +1,4 @@
-# consulting Color Palette — Strict Reference
+# Consulting Color Palette — Strict Reference
 
 ## Primary Palette
 
