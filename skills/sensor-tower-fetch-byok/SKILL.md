@@ -1,15 +1,13 @@
 ---
 name: sensor-tower-fetch-byok
-description: "BYOK (bring-your-own-key) version of the Sensor Tower API pull skill, for sharing outside the team. Same功能 as sensor-tower-fetch but does NOT bundle any token — each user must supply their OWN Sensor Tower API key (via ST_AUTH_TOKEN env var or a gitignored config.local.json). Pulls Downloads / Revenue (+ optional DAU) by product name + date range, applies a selectable caliber (net = ST native net revenue, no ÷0.7 [default]; or gross = ÷0.7 platform restore; CN uplifts default off; recomputed RPD/ARPDAU) — user confirms which caliber each run, outputs a 3-sheet Excel (明细 / 按App汇总 / 按地区汇总). Self-contained (does NOT need sensor-tower-data-adjust). Triggers: '自带 key 拉 ST 数据 / 用我自己的 key / BYOK sensor tower / 对外版 ST 取数 / 没有团队 key 的 ST 拉数 / fetch sensor tower with my own key / bring your own key sensor tower'. NOTE: if you are on the internal team and have the shared token, use sensor-tower-fetch instead (zero key setup)."
+description: "BYOK (bring-your-own-key) version of the Sensor Tower API pull skill, each user must supply their OWN Sensor Tower API key (via ST_AUTH_TOKEN env var or a gitignored config.local.json). Pulls Downloads / Revenue (+ optional DAU) by product name + date range, applies a selectable caliber (net = ST native net revenue, no ÷0.7 [default]; or gross = ÷0.7 platform restore; CN uplifts default off; recomputed RPD/ARPDAU) — user confirms which caliber each run, outputs a 3-sheet Excel (明细 / 按App汇总 / 按地区汇总). Self-contained (does NOT need sensor-tower-data-adjust). Triggers: '自带 key 拉 ST 数据 / 用我自己的 key / BYOK sensor tower / fetch sensor tower with my own key / bring your own key sensor tower'."
 ---
 
 # Sensor Tower API 一键取数（BYOK 自带 Key 版）
 
-和团队版 `sensor-tower-fetch` 功能完全相同，**唯一区别：不内置任何 token**。本版本用于分享给团队外的人——
-每位使用者需用**自己的 Sensor Tower API key**。给「产品 + 日期区间」即可拉**下载量 + 收入**（可选 DAU），
-自动套可选口径（net=ST原始净收入不÷0.7 / gross=÷0.7还原；CN上修默认关；重算 RPD/ARPDAU），出 3-sheet Excel。不用手动导出 CSV。口径见 03_数据源/SensorTower/数据口径说明.md。
+BYOK 版：**不内置任何 token**，每位使用者用自己的 Sensor Tower API key。给「产品 + 日期区间」即可拉**下载量 + 收入**（可选 DAU），
+自动套可选口径（net=ST原始净收入不÷0.7 / gross=÷0.7还原；CN上修默认关；重算 RPD/ARPDAU），出 3-sheet Excel。不用手动导出 CSV。口径见 数据口径说明.md。
 
-> 内部团队成员有共享 token，请直接用 `sensor-tower-fetch`（零 key 配置）。本版本是给没有团队 key 的人用的。
 
 ## 首次使用：配置你自己的 API Key（必做一次）
 
@@ -58,7 +56,7 @@ skill 非云端专属，本地 CLI 一样能跑。两种安装范围：
 - **net**：ST `sales_report_estimates` 返回值已是净收入（扣平台分成+税费），直接用，不 ÷0.7 —— 公司战略会分析默认。
 - **gross**：`Revenue / 0.7` 还原成玩家毛支出，用于与 gross 口径外部数据对齐。两口径不混用。
 - CN 区上修（×4/×2.2/×3）默认关；如需开启编辑 `scripts/fetch.py` 顶部 `CN_*_MULT` 常量。
-- 口径详见 `03_数据源/SensorTower/数据口径说明.md`。
+- 口径详见 `数据口径说明.md`。
 
 ## 调用流程：确认 key → 先问 → 解析确认 → 一把拉完
 

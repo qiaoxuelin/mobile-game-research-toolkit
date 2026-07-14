@@ -35,10 +35,14 @@
 cp -r skills/* ~/.claude/skills/
 ```
 
-## 配置
+## 配置 / 外部依赖
 
-- **sensor-tower-fetch-byok** 是 BYOK（Bring Your Own Key）：不内置 token。用环境变量 `ST_AUTH_TOKEN`，或在 `skills/sensor-tower-fetch-byok/` 下建 `config.local.json`（已 gitignore）填你自己的 Sensor Tower API token。见 [`config.local.example.json`](skills/sensor-tower-fetch-byok/config.local.example.json)。
-- **feishu-doc-editing** 需要本地安装 `lark-cli`（`npm i -g lark-cli`）并完成飞书 OAuth 授权（`lark-cli auth`）。
+| skill | 外部依赖 | 安装 / 配置 |
+|---|---|---|
+| `sensor-tower-fetch-byok` | Sensor Tower API（付费，BYOK）+ Python 3 | `pip install pandas numpy openpyxl requests`；用 `ST_AUTH_TOKEN` 环境变量或 `config.local.json`（已 gitignore）填你自己的 ST token，见 [`config.local.example.json`](skills/sensor-tower-fetch-byok/config.local.example.json)。口径见 [`数据口径说明.md`](skills/sensor-tower-fetch-byok/数据口径说明.md) |
+| `feishu-doc-editing` | `@larksuite/cli`（飞书官方 CLI，公开 npm 包） | `npm i -g @larksuite/cli`（提供 `lark-cli` 命令）；`lark-cli auth` 完成飞书 OAuth 授权。⚠ **不是** `npm i -g lark-cli`（那是另一个不相关的 0.1.0 包） |
+| `chart-style` | 无（产出 SVG，语言不限） | 可选 Python 生成 SVG |
+| `mobile-game-strategy-research` | 无 | - |
 
 ## 备注
 
