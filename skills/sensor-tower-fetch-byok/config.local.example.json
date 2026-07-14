@@ -1,0 +1,4 @@
+{
+  "_comment": "把本文件复制为同目录的 config.local.json，填入你自己的 Sensor Tower API token。config.local.json 已被 gitignore，不会被提交。",
+  "auth_token": "你的_SENSOR_TOWER_API_TOKEN"
+}

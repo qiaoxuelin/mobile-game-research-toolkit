@@ -1,0 +1,6 @@
+# 使用者自己的 API key 放这里，绝不提交
+config.local.json
+
+# Python 缓存
+__pycache__/
+*.pyc

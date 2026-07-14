@@ -1,0 +1,16 @@
+# Sensor Tower API token（BYOK，绝不提交）
+**/config.local.json
+**/settings.local.json
+
+# 会话临时 / 本地 scratch
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 系统
+.DS_Store
+Thumbs.db
+*.stackdump
