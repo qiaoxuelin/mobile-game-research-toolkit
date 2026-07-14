@@ -1,4 +1,4 @@
-# Mobile Game Strategy Research Toolkit
+# Mobile Game Research Toolkit
 
 一套海外手游战略研究的 Claude Code agent skills，覆盖**研究方法论 -> 数据取数 -> 作图 -> 飞书文档交付**的完整流程。4 个 skill 可独立使用，也可串成一条从"判断一个赛道/趋势"到"飞书专题报告交付"的工作链。
 
